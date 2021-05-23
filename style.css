@@ -1,3 +1,104 @@
+/* Estrutura inicial do arquivo, contendo as fontes e ícones utilizadas no projeto. */
+
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600&family=Josefin+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Mulish:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap');
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+
+/* Configurações básicas da página, alterando a estrutura padrão de margem e padding. */
+
+* {
+    margin: 0;
+    padding: 0; /* Margem interna */
+}
+
+/* Configurações relacionadas ao Header */
+
+header {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    animation: zoom 15s;
+}
+
+@keyframes zoom { /* animação de efeito zoom da imagem bg */
+    0% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.banner {
+    position: absolute;
+    top: 33%;
+    left: 15%;
+}
+
+.banner h1 {
+    color: whitesmoke;
+    font-size: 3.2rem; /* Por questões de acessibilidade, é preferível a utilização de tamanhos de fonte relativos, já que medidas exatas como px ou cm podem não se adequar tão bem as eventuais necessidades de pessoas com deficiências visuais */
+    font-family: "Baloo Da 2", serif; /* Caso o site que hospeda a fonte escolhida para o h1 cair, é necessário especificar uma fonte secundária */
+    font-weight: 200;
+    text-shadow: .2rem .4rem 2px rgba(0, 0, 0, .4);
+    line-height: 3rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: moveBanner 1.5s forwards;
+}
+
+@keyframes moveBanner { /* animação de subida e giro do banner */
+    0% {
+        transform: translateY(10rem) rotateY(-30deg); 
+    }
+    100% {
+        transform: translateY(0) rotateY(0);
+        opacity: 1;
+    }
+}
+
+.banner h2 {
+    color: whitesmoke;
+    font-size: 1.8rem;
+    font-family: "Josefin Slab", serif;
+    font-weight: 200;
+    text-shadow: .2rem .2rem rgba(0, 0, 0, .4);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: moveBanner 1.7s forwards;
+}
+
+.banner button {
+    color: whitesmoke;
+    background: grey;
+    font-family: "Mulish", serif;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    padding: 1rem 3rem;
+    border: 0;
+    border-radius: 5px; /* Pode ser em px pois a intenção é de que essa medida não se altere */
+    cursor: pointer;
+    opacity: 0;
+    animation: moveBanner 2s forwards;
+}
+
+.banner button:hover{
+    opacity: 0.8;
+    color: black;
+}
